@@ -1,0 +1,598 @@
+cd ~/Desktop/personal-task-manager
+
+mkdir -p resources/views/tasks
+
+cat > resources/views/layout.blade.php <<'EOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Task Manager</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #1f2937;
+        }
+
+        .navbar {
+            background: white;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 18px 0;
+        }
+
+        .navbar-content {
+            width: 90%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2563eb;
+        }
+
+        .logo span {
+            color: #111827;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1100px;
+            margin: 35px auto;
+            min-height: 70vh;
+        }
+
+        .page-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .page-header h2 {
+            font-size: 30px;
+            margin-bottom: 6px;
+        }
+
+        .page-header p {
+            color: #6b7280;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 11px 18px;
+            border-radius: 8px;
+            border: none;
+            background: #2563eb;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .button:hover {
+            background: #1d4ed8;
+        }
+
+        .button-edit {
+            background: #f59e0b;
+        }
+
+        .button-edit:hover {
+            background: #d97706;
+        }
+
+        .button-danger {
+            background: #ef4444;
+        }
+
+        .button-danger:hover {
+            background: #dc2626;
+        }
+
+        .task-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .task-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 12px;
+            padding: 22px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .task-card h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .task-description {
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .status {
+            display: inline-block;
+            padding: 6px 10px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .pending {
+            background: #fff7ed;
+            color: #ea580c;
+        }
+
+        .completed {
+            background: #ecfdf5;
+            color: #059669;
+        }
+
+        .due-date {
+            color: #6b7280;
+            font-size: 14px;
+            margin-bottom: 18px;
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .task-actions .button {
+            font-size: 13px;
+            padding: 8px 12px;
+        }
+
+        .empty {
+            background: white;
+            padding: 50px 20px;
+            text-align: center;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+        }
+
+        .empty h3 {
+            margin-bottom: 10px;
+        }
+
+        .empty p {
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+
+        .success {
+            background: #ecfdf5;
+            color: #047857;
+            padding: 14px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .form-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #e5e7eb;
+            max-width: 700px;
+            margin: auto;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 7px;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            font-size: 15px;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+            border-color: #2563eb;
+        }
+
+        .error {
+            background: #fef2f2;
+            color: #b91c1c;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #9ca3af;
+            font-size: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .page-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .page-header h2 {
+                font-size: 25px;
+            }
+
+            .task-actions {
+                flex-wrap: wrap;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="navbar-content">
+        <div class="logo">
+            Task<span>Manager</span>
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    @yield('content')
+</main>
+
+<footer>
+    Personal Task Manager © {{ date('Y') }}
+</footer>
+
+</body>
+</html>
+EOF
+
+
+cat > resources/views/tasks/index.blade.php <<'EOF'
+@extends('layout')
+
+@section('content')
+
+<div class="page-header">
+    <div>
+        <h2>My Tasks</h2>
+        <p>Manage your tasks and stay organized.</p>
+    </div>
+
+    <a href="{{ route('tasks.create') }}" class="button">
+        + Add Task
+    </a>
+</div>
+
+@if(session('success'))
+    <div class="success">
+        {{ session('success') }}
+    </div>
+@endif
+
+@if($tasks->count() == 0)
+
+    <div class="empty">
+        <h3>No tasks yet</h3>
+
+        <p>
+            Start by creating your first task.
+        </p>
+
+        <a href="{{ route('tasks.create') }}" class="button">
+            + Create Task
+        </a>
+    </div>
+
+@else
+
+    <div class="task-grid">
+
+        @foreach($tasks as $task)
+
+            <div class="task-card">
+
+                <h3>
+                    {{ $task->task_name }}
+                </h3>
+
+                <p class="task-description">
+                    {{ $task->description ?? 'No description available.' }}
+                </p>
+
+                @if($task->status == 'Completed')
+
+                    <span class="status completed">
+                        ✓ Completed
+                    </span>
+
+                @else
+
+                    <span class="status pending">
+                        ● Pending
+                    </span>
+
+                @endif
+
+                <p class="due-date">
+
+                    📅
+
+                    @if($task->due_date)
+                        Due: {{ $task->due_date }}
+                    @else
+                        No due date
+                    @endif
+
+                </p>
+
+                <div class="task-actions">
+
+                    <a
+                        href="{{ route('tasks.edit', $task->id) }}"
+                        class="button button-edit">
+
+                        Edit
+
+                    </a>
+
+                    <form
+                        action="{{ route('tasks.destroy', $task->id) }}"
+                        method="POST"
+                        style="display:inline;">
+
+                        @csrf
+                        @method('DELETE')
+
+                        <button
+                            type="submit"
+                            class="button button-danger"
+                            onclick="return confirm('Are you sure you want to delete this task?')">
+
+                            Delete
+
+                        </button>
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        @endforeach
+
+    </div>
+
+@endif
+
+@endsection
+EOF
+
+
+cat > resources/views/tasks/create.blade.php <<'EOF'
+@extends('layout')
+
+@section('content')
+
+<div class="page-header">
+    <div>
+        <h2>Add New Task</h2>
+        <p>Create a new task for your task list.</p>
+    </div>
+</div>
+
+<div class="form-card">
+
+    @if($errors->any())
+
+        <div class="error">
+
+            <strong>Please fix the following:</strong>
+
+            <ul>
+
+                @foreach($errors->all() as $error)
+
+                    <li>{{ $error }}</li>
+
+                @endforeach
+
+            </ul>
+
+        </div>
+
+    @endif
+
+    <form action="{{ route('tasks.store') }}" method="POST">
+
+        @csrf
+
+        <label>Task Name</label>
+
+        <input
+            type="text"
+            name="task_name"
+            placeholder="Example: Finish Laravel Project"
+            value="{{ old('task_name') }}"
+            required>
+
+        <label>Description</label>
+
+        <textarea
+            name="description"
+            rows="6"
+            placeholder="Describe your task...">{{ old('description') }}</textarea>
+
+        <label>Due Date</label>
+
+        <input
+            type="date"
+            name="due_date"
+            value="{{ old('due_date') }}">
+
+        <button type="submit" class="button">
+            Save Task
+        </button>
+
+        <a
+            href="{{ route('tasks.index') }}"
+            class="button"
+            style="background:#6b7280;">
+
+            Cancel
+
+        </a>
+
+    </form>
+
+</div>
+
+@endsection
+EOF
+
+
+cat > resources/views/tasks/edit.blade.php <<'EOF'
+@extends('layout')
+
+@section('content')
+
+<div class="page-header">
+    <div>
+        <h2>Edit Task</h2>
+        <p>Update your task information.</p>
+    </div>
+</div>
+
+<div class="form-card">
+
+    @if($errors->any())
+
+        <div class="error">
+
+            <strong>Please fix the following:</strong>
+
+            <ul>
+
+                @foreach($errors->all() as $error)
+
+                    <li>{{ $error }}</li>
+
+                @endforeach
+
+            </ul>
+
+        </div>
+
+    @endif
+
+    <form
+        action="{{ route('tasks.update', $task->id) }}"
+        method="POST">
+
+        @csrf
+        @method('PUT')
+
+        <label>Task Name</label>
+
+        <input
+            type="text"
+            name="task_name"
+            value="{{ $task->task_name }}"
+            required>
+
+        <label>Description</label>
+
+        <textarea
+            name="description"
+            rows="6">{{ $task->description }}</textarea>
+
+        <label>Status</label>
+
+        <select name="status">
+
+            <option
+                value="Pending"
+                {{ $task->status == 'Pending' ? 'selected' : '' }}>
+
+                Pending
+
+            </option>
+
+            <option
+                value="Completed"
+                {{ $task->status == 'Completed' ? 'selected' : '' }}>
+
+                Completed
+
+            </option>
+
+        </select>
+
+        <label>Due Date</label>
+
+        <input
+            type="date"
+            name="due_date"
+            value="{{ $task->due_date }}">
+
+        <button type="submit" class="button">
+            Update Task
+        </button>
+
+        <a
+            href="{{ route('tasks.index') }}"
+            class="button"
+            style="background:#6b7280;">
+
+            Cancel
+
+        </a>
+
+    </form>
+
+</div>
+
+@endsection
+EOF
+
+
+php artisan view:clear
+
+echo ""
+echo "======================================"
+echo " Blade UI installed successfully!"
+echo "======================================"
+echo ""
+echo "Files created:"
+echo "resources/views/layout.blade.php"
+echo "resources/views/tasks/index.blade.php"
+echo "resources/views/tasks/create.blade.php"
+echo "resources/views/tasks/edit.blade.php"
+echo ""
+echo "Now run: php artisan serve"
