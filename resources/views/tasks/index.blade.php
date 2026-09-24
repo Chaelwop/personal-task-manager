@@ -103,33 +103,57 @@
 
                 <div class="task-actions">
 
-                    <a
-                        href="{{ route('tasks.edit', $task->id) }}"
-                        class="button button-edit">
+                <div class="task-actions">
 
-                        Edit
+    @if($task->status != 'Completed')
 
-                    </a>
+        <form
+            action="{{ route('tasks.complete', $task->id) }}"
+            method="POST"
+        >
+
+            @csrf
+
+            <button
+                type="submit"
+                class="button button-done"
+            >
+                ✓ Done
+            </button>
+
+        </form>
+
+    @endif
 
 
-                    <form
-                        action="{{ route('tasks.destroy', $task->id) }}"
-                        method="POST">
+    <a
+        href="{{ route('tasks.edit', $task->id) }}"
+        class="button button-edit"
+    >
+        Edit
+    </a>
 
-                        @csrf
 
-                        @method('DELETE')
+    <form
+        action="{{ route('tasks.destroy', $task->id) }}"
+        method="POST"
+    >
 
-                        <button
-                            type="submit"
-                            class="button button-danger"
-                            onclick="return confirm('Are you sure you want to delete this task?')">
+        @csrf
 
-                            Delete
+        @method('DELETE')
 
-                        </button>
+        <button
+            type="submit"
+            class="button button-danger"
+            onclick="return confirm('Are you sure you want to delete this task?')"
+        >
+            Delete
+        </button>
 
-                    </form>
+    </form>
+
+</div>
 
                 </div>
 

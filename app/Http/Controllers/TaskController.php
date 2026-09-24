@@ -63,6 +63,16 @@ class TaskController extends Controller
             ->with('success', 'Task updated successfully!');
     }
 
+            public function complete(Task $task)
+        {
+            $task->update([
+                'status' => 'Completed'
+            ]);
+
+            return redirect()->route('tasks.index')
+                ->with('success', 'Task marked as completed!');
+        }
+
     public function destroy(Task $task)
     {
         $task->delete();
