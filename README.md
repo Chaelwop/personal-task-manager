@@ -33,4 +33,4 @@ Route → Controller → Model → Database → Blade
 Clone the repository:
 
 ```bash
-git clone https://github.com/Chaelwop/personal-task-manager.git
+git clone https://github.com/Chaelwop/personal-task-manager.git# personal-task-manager
