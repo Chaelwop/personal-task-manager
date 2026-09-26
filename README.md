@@ -7,7 +7,7 @@ A simple Personal Task Manager built with Laravel.
 - Student Name: Vera Cruz, Michael C.
 - Course & Year: 2nd year
 - Database Used: Laravel, Mariandb, SQl
-Features:
+# Features:
 - Add Task
 - View Tasks
 - Edit Task
