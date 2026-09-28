@@ -3,10 +3,14 @@
 A simple Personal Task Manager built with Laravel.
 
 # STUDENT INFORMATION
-- Project Code: WST21-PM-2026-SF
-- Student Name: Vera Cruz, Michael C.
-- Course & Year: 2nd year
-- Database Used: Laravel, Mariandb, SQl
+# PROJECT CODE
+- WST21-PM-2026-SF
+# STUDENT NAME
+- Vera Cruz, Michael C.
+# COURSE & YEAR
+- 2nd year
+# DATABASE USED
+- Laravel, Mariandb, SQl
 # Features:
 - Add Task
 - View Tasks
