@@ -40,6 +40,10 @@ The project follows the Laravel structure:
 
 Route → Controller → Model → Database → Blade
 
+## SCREENSHOT OUTPUT
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c94b2b85-f31a-4b18-b2d9-508cfca1d468" />
+- MAIN PAGE
+
 ## Installation
 
 Clone the repository:
