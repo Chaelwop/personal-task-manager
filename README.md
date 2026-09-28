@@ -44,6 +44,15 @@ Route → Controller → Model → Database → Blade
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c94b2b85-f31a-4b18-b2d9-508cfca1d468" />
 - MAIN PAGE
 
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/41728372-f144-45e6-93b0-3e06d847846f" />
+- ADDING NEW TASK
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/268259ae-6f6a-419a-b4b6-e20d0da6d7f0" />
+- SHOWING IN THE MAIN PAGE
+
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/6cd98cd8-dc8b-4ad4-b46e-606bd5719355" />
+- COMPLETED WORKS
+
 ## Installation
 
 Clone the repository:
