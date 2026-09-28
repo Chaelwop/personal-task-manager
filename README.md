@@ -46,20 +46,20 @@ Route → Controller → Model → Database → Blade
 
 # SCREENSHOT OUTPUT
 # MAIN PAGE
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c94b2b85-f31a-4b18-b2d9-508cfca1d468" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/bb5ef450-ec17-4b5b-9801-e7a606c1937f" />
 
 # ADDING NEW TASK
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/41728372-f144-45e6-93b0-3e06d847846f" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/3fcf72a8-5007-42cb-b5e7-18eb4d860ca3" />
 
 # SHOWING IN THE MAIN PAGE
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/268259ae-6f6a-419a-b4b6-e20d0da6d7f0" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/52ccee31-02cc-4f43-82c3-316bbae3c5da" />
 
 # COMPLETED WORKS
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/6cd98cd8-dc8b-4ad4-b46e-606bd5719355" />
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/ef487e9d-3601-4828-9f05-1cd23d49678c" />
 
 # STEPS TO  WORK IF THE CODESPACE ARE NOT WORKING
 
-# FIRST START THE MARIADB
+# FIRST START THE MARIADB****
  - sudo systemctl start mariadb
 # SECOND MAKE SURE THAT YOUR TERMINAL WAS CONNECTED TO YOUR FILE
  - cd ~/Desktop/personal-task-manager
