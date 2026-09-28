@@ -55,12 +55,12 @@ Route → Controller → Model → Database → Blade
 
 # STEPS TO  WORK IF THE CODESPACE ARE NOT WORKING
 
-- FIRST START THE MARIADB
-  sudo systemctl start mariadb
-- SECOND MAKE SURE THAT YOUR TERMINAL WAS CONNECTED TO YOUR FILE
-  cd ~/Desktop/personal-task-manager
-- START THE SYSTEM
-  php artisan serve
+# FIRST START THE MARIADB
+ - sudo systemctl start mariadb
+# SECOND MAKE SURE THAT YOUR TERMINAL WAS CONNECTED TO YOUR FILE
+ - cd ~/Desktop/personal-task-manager
+# START THE SYSTEM
+ - php artisan serve
 
 # Installation
 
