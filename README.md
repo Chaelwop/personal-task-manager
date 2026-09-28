@@ -14,7 +14,7 @@ A simple Personal Task Manager built with Laravel.
 - Delete Task
 - Update Status
 
-## Features
+# Features
 
 - Add Task
 - View Tasks
@@ -24,7 +24,7 @@ A simple Personal Task Manager built with Laravel.
 - Set Due Date
 - Task Description
 
-## Technologies
+# Technologies
 
 - Laravel
 - PHP
@@ -34,13 +34,13 @@ A simple Personal Task Manager built with Laravel.
 - CSS
 - JavaScript
 
-## Project Structure
+# Project Structure
 
 The project follows the Laravel structure:
 
 Route → Controller → Model → Database → Blade
 
-## SCREENSHOT OUTPUT
+# SCREENSHOT OUTPUT
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/c94b2b85-f31a-4b18-b2d9-508cfca1d468" />
 - MAIN PAGE
 
@@ -53,9 +53,19 @@ Route → Controller → Model → Database → Blade
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/6cd98cd8-dc8b-4ad4-b46e-606bd5719355" />
 - COMPLETED WORKS
 
-## Installation
+# STEPS TO  WORK IF THE CODESPACE ARE NOT WORKING
+
+- FIRST START THE MARIADB
+  sudo systemctl start mariadb
+- SECOND MAKE SURE THAT YOUR TERMINAL WAS CONNECTED TO YOUR FILE
+  cd ~/Desktop/personal-task-manager
+- START THE SYSTEM
+  php artisan serve
+
+# Installation
 
 Clone the repository:
 
 ```bash
 git clone https://github.com/Chaelwop/personal-task-manager.git# personal-task-manager
+
