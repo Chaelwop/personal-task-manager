@@ -46,7 +46,9 @@ Route → Controller → Model → Database → Blade
 
 # SCREENSHOT OUTPUT
 # MAIN PAGE
-<img width="697" height="419" alt="image" src="https://github.com/user-attachments/assets/ba9bc2e8-560c-4e10-a151-8d3a664e4fdb" />
+
+<img width="697" height="419" alt="image" src="https://github.com/user-attachments/assets/8a070fb5-3b56-40a3-9d01-32cd52050927" />
+
 
 <img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/bb5ef450-ec17-4b5b-9801-e7a606c1937f" />
 
